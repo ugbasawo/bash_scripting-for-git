@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Check if the current directory is a Git repository
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "Initializing Git repository..."
+  git init
+fi
+
+# Set the user name and email
+echo "Enter your Git user name:"
+read git_user_name
+echo "Enter your Git user email:"
+read git_user_email
+git config --global user.name "$git_user_name"
+git config --global user.email "$git_user_email"
+
+# Create a new branch and switch to it
+echo "Creating a new branch 'main' and switching to it..."
+git checkout -b main
+
+# Stage and commit all changes
+echo "Staging and committing all changes..."
+git add .
+git commit -m "Initial commit"
+
+# Add the remote repository
+echo "Enter the URL of the remote repository:"
+read remote_repo_url
+git remote add origin "$remote_repo_url"
+
+# Push changes to the remote repository
+echo "Pushing changes to the remote repository..."
+git push -u origin main
+This script first checks if the current directory is a Git repository. If it is not, it initializes a new Git repository. It then prompts the user to enter their Git user name and email, and sets them as global Git configuration variables.
+
+Next, the script creates a new branch called main and switches to it. It stages and commits all changes in the repository with the message "Initial commit".
+
+Finally, the script prompts the user to enter the URL of the remote repository, adds it as the origin remote, and pushes the main branch to the remote repository.
+
+You can save this script to a file (e.g., git_init.sh), make it executable with chmod +x git_init.sh, and run it with ./git_init.sh.
+
+Note that this script assumes that you want to use the branch name main. If you prefer to use a different branch name, you can modify the git checkout -b main command accordingly.
+
+I hope this helps! Let me know if you have any questions or if you'd like to modify the script in any 
+
+
+
+
+
+
+
+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
+
