@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Test') {
+            steps {
+                sh 'testing application'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'building application'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Add your deployment commands here
+            }
+        }
+    }
+    post {
+        success {
+            mail to: 'your_email@example.com',
+                 subject: 'Application Deployment Successful',
+                 body: 'The application has been successfully deployed. Check the Jenkins console for more information.'
+        }
+        failure {
+            mail to: 'your_email@example.com',
+                 subject: 'Application Deployment Failed',
+                 body: 'The application deployment failed. Check the Jenkins console for more information.'
+        }
+    }
+}
