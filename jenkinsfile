@@ -20,7 +20,7 @@ pipeline {
     }
     post {
         success {
-            mail to: 'your_email@example.com',
+            mail to: 'davidoche222@gmail.com',
                  subject: 'Application Deployment Successful',
                  body: 'The application has been successfully deployed. Check the Jenkins console for more information.'
         }
